@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* TÍTULO */
+h1 {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  font-size: 3rem;
+  text-align: center;
+  color: #ff4d6d;
+}
+
+/* FOTO CENTRAL (FIXA - SEM BUG) */
+.foto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* FOTO + ANIMAÇÕES */
+.foto img {
+  width: 260px;
+  border-radius: 20px;
+
+  /* brilho + glow */
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.8);
+
+  /* animações */
+  animation: 
+    flutuarImagem 4s infinite ease-in-out,
+    brilho 3s infinite ease-in-out;
+
+  transition: 0.3s;
+}
+
+.foto-caption {
+  margin-top: 35px;
+  font-size: 1.2rem;
+  color: #ff4d6d;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* HOVER NA FOTO */
+.foto img:hover {
+  transform: scale(1.05);
+}
+
+/* FLUTUAÇÃO SUAVE */
+@keyframes flutuarImagem {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* BRILHO PULSANDO */
+@keyframes brilho {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 77, 109, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
+  }
+}
+
+/* ITENS (IMAGENS AO REDOR) */
+.item {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  object-fit: contain;
+  border-radius: 15px;
+
+  animation: flutuar 4s infinite ease-in-out;
+  transition: 0.3s;
+}
+
+/* HOVER NAS IMAGENS */
+.item:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #ff4d6d);
+}
+
+/* POSIÇÕES AJUSTADAS */
+.item1 { top: 8%; left: 18%; }
+.item2 { top: 15%; right: 18%; }
+.item3 { top: 30%; left: 5%; }
+.item4 { top: 35%; right: 5%; }
+.item5 { bottom: 30%; left: 22%; }
+.item6 { bottom: 45%; right: 22%; }
+.item7 { bottom: 10%; left: 15%; }
+.item8 { bottom: 15%; right: 20%; }
+.item9 { top: 50%; left: 5%; }
+.item10 { top: 70%; right: 5%; }
+.item11 { top: 30%; left: 25%; }
+
+/* ANIMAÇÃO DOS ITENS */
+@keyframes flutuar {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* CORAÇÕES */
+.hearts {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.hearts span {
+  font-size: 20px;
+  animation: subir 6s linear infinite;
+  opacity: 0.7;
+}
+
+/* VARIAÇÃO PRA FICAR NATURAL */
+.hearts span:nth-child(1) { animation-duration: 5s; }
+.hearts span:nth-child(2) { animation-duration: 7s; }
+.hearts span:nth-child(3) { animation-duration: 6s; }
+.hearts span:nth-child(4) { animation-duration: 8s; }
+.hearts span:nth-child(5) { animation-duration: 5.5s; }
+
+/* SUBIDA DOS CORAÇÕES */
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+
+  
+}

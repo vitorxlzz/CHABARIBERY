@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #e79aff, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  color: white;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+p {
+  font-size: 1.7em;
+  margin-bottom: 30px;
+}
+
+.gift {
+  font-size: 80px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gift:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* CONTAINER DOS CORAÇÕES */
+.hearts {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+/* CORAÇÕES */
+.hearts span {
+  font-size: 20px;
+  animation: subir 6s linear infinite;
+  opacity: 0.7;
+}
+
+/* VARIAÇÃO DE TEMPO (fica mais natural) */
+.hearts span:nth-child(1) { animation-duration: 5s; }
+.hearts span:nth-child(2) { animation-duration: 7s; }
+.hearts span:nth-child(3) { animation-duration: 6s; }
+.hearts span:nth-child(4) { animation-duration: 8s; }
+.hearts span:nth-child(5) { animation-duration: 5.5s; }
+
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+
+}
